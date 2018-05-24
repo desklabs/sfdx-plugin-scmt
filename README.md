@@ -13,27 +13,27 @@ Plugin for SCMT development.
 <!-- install -->
 <!-- usage -->
 ```sh-session
-$ npm install -g scmt
-$ scmt COMMAND
+$ npm install -g @desklabs/scmt
+$ @desklabs/scmt COMMAND
 running command...
-$ scmt (-v|--version|version)
-scmt/0.0.1 darwin-x64 node-v9.11.1
-$ scmt --help [COMMAND]
+$ @desklabs/scmt (-v|--version|version)
+@desklabs/scmt/0.0.1 darwin-x64 node-v9.11.1
+$ @desklabs/scmt --help [COMMAND]
 USAGE
-  $ scmt COMMAND
+  $ @desklabs/scmt COMMAND
 ...
 ```
 <!-- usagestop -->
 <!-- commands -->
-* [`scmt scmt:audit:enable`](#scmt-scmtauditenable)
+* [`@desklabs/scmt scmt:audit:enable`](#desklabs-scmt-scmtauditenable)
 
-## `scmt scmt:audit:enable`
+## `@desklabs/scmt scmt:audit:enable`
 
 enables 'Set Audit Fields upon Record Creation' and 'Update Records with Inactive Owners' user permissions
 
 ```
 USAGE
-  $ scmt scmt:audit:enable
+  $ @desklabs/scmt scmt:audit:enable
 
 OPTIONS
   -u, --targetusername=targetusername             username or alias for the target org; overrides default target org
