@@ -17,7 +17,7 @@ $ npm install -g scmt
 $ scmt COMMAND
 running command...
 $ scmt (-v|--version|version)
-scmt/0.0.0 darwin-x64 node-v9.11.1
+scmt/0.0.1 darwin-x64 node-v9.11.1
 $ scmt --help [COMMAND]
 USAGE
   $ scmt COMMAND
@@ -47,7 +47,7 @@ EXAMPLES
   $ sfdx scmt:audit:enable --targetusername myOrg@example.com
 ```
 
-_See code: [src/commands/scmt/audit/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.0/src/commands/scmt/audit/enable.ts)_
+_See code: [src/commands/scmt/audit/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.1/src/commands/scmt/audit/enable.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
