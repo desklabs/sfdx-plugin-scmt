@@ -1,0 +1,61 @@
+{
+  "name": "scmt",
+  "description": "Plugin for SCMT development.",
+  "version": "0.0.0",
+  "author": "Thomas Stachl @tstachl",
+  "bugs": "https://github.com/desklabs/sfdx-plugin-scmt/issues",
+  "dependencies": {
+    "@oclif/command": "1",
+    "@oclif/config": "1",
+    "@oclif/errors": "1",
+    "@oclif/plugin-legacy": "^1.0.15",
+    "@salesforce/command": "0.1.2",
+    "puppeteer": "^1.4.0"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "1",
+    "@oclif/plugin-help": "1",
+    "@oclif/test": "1",
+    "@salesforce/dev-config": "1.0.4",
+    "@types/chai": "4",
+    "@types/jsforce": "1.8.9",
+    "@types/mocha": "5",
+    "@types/node": "9",
+    "@types/puppeteer": "^1.3.2",
+    "chai": "4",
+    "globby": "8",
+    "mocha": "5",
+    "sinon": "5",
+    "ts-node": "5",
+    "tslib": "1",
+    "typescript": "2.8"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    ".oclif.manifest.json",
+    "/lib",
+    "/messages"
+  ],
+  "homepage": "https://github.com/desklabs/sfdx-plugin-scmt",
+  "keywords": [
+    "sfdx-plugin"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "commands": "./lib/commands",
+    "devPlugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "desklabs/sfdx-plugin-scmt",
+  "scripts": {
+    "postpack": "rm -f .oclif.manifest.json",
+    "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",
+    "prepack": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme",
+    "prepare": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}

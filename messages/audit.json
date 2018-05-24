@@ -1,0 +1,3 @@
+{
+  "enableCommandDescription": "enables 'Set Audit Fields upon Record Creation' and 'Update Records with Inactive Owners' user permissions"
+}
