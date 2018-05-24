@@ -1,5 +1,5 @@
 {
-  "name": "scmt",
+  "name": "sfdx-plugin-scmt",
   "description": "Plugin for SCMT development.",
   "version": "0.0.1",
   "author": "Thomas Stachl @tstachl",
