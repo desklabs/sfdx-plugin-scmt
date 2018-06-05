@@ -26,6 +26,7 @@ USAGE
 <!-- usagestop -->
 <!-- commands -->
 * [`@desklabs/scmt scmt:audit:enable`](#desklabs-scmt-scmtauditenable)
+* [`@desklabs/scmt scmt:cache:disable`](#desklabs-scmt-scmtcachedisable)
 
 ## `@desklabs/scmt scmt:audit:enable`
 
@@ -48,6 +49,28 @@ EXAMPLES
 ```
 
 _See code: [src/commands/scmt/audit/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.2/src/commands/scmt/audit/enable.ts)_
+
+## `@desklabs/scmt scmt:cache:disable`
+
+disables secure and persistent browser caching for development
+
+```
+USAGE
+  $ @desklabs/scmt scmt:cache:disable
+
+OPTIONS
+  -u, --targetusername=targetusername             username or alias for the target org; overrides default target org
+  --apiversion=apiversion                         override the api version used for api requests made by this command
+  --json                                          format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal)  logging level for this command invocation
+
+EXAMPLES
+  $ sfdx scmt:cache:disable
+
+  $ sfdx scmt:cache:disable --targetusername myOrg@example.com
+```
+
+_See code: [src/commands/scmt/cache/disable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.2/src/commands/scmt/cache/disable.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
