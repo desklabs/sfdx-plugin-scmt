@@ -1,7 +1,7 @@
 {
   "name": "@desklabs/scmt",
   "description": "Plugin for SCMT development.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Thomas Stachl @tstachl",
   "bugs": "https://github.com/desklabs/sfdx-plugin-scmt/issues",
   "dependencies": {
