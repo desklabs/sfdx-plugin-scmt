@@ -1,7 +1,7 @@
 {
   "name": "@desklabs/scmt",
   "description": "Plugin for SCMT development.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "Thomas Stachl @tstachl",
   "bugs": "https://github.com/desklabs/sfdx-plugin-scmt/issues",
   "dependencies": {
@@ -25,7 +25,7 @@
     "chai": "4",
     "globby": "8",
     "mocha": "5",
-    "sinon": "5",
+    "sinon": "^5.0.10",
     "ts-node": "5",
     "tslib": "1",
     "typescript": "2.8"
