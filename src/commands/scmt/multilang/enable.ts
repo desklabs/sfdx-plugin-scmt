@@ -56,10 +56,7 @@ export default class Enable extends CommandBase {
       await this.page.evaluate(`document.querySelector("` + fieldStr + `").checked = true;`); //`document.querySelector("#st_3").checked = true;`
     }
 
-    await Promise.all([
-      this.page.waitForNavigation(),
-      (await this.page.$("input[title='Save']")).click()
-    ]);
+    await this.page.click('input[title="Save"]');
 
     this.ux.log(outputString);
     return { outputString };
