@@ -29,7 +29,7 @@ export default class Enable extends CommandBase {
   protected static requiresUsername = true;
 
   public async run(): Promise<any> { // tslint:disable-line:no-any
-    let outputString = messages.getMessage('enableCommandDescription');
+    let outputString = messages.getMessage('commandFinished');
     //navigate to KB settings edit page
     await this.page.goto(this.buildUrl('/_ui/support/knowledge/KnowledgeSettingsUI/e'));
     //check for multi

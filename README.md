@@ -75,7 +75,7 @@ _See code: [src/commands/scmt/cache/disable.ts](https://github.com/desklabs/sfdx
 
 ## `@desklabs/scmt scmt:multilang:enable`
 
-enables 'Multi-Languange' and 'Adds German Translations'
+Enables 'Multi-Languange' and 'Adds German Translations'
 
 ```
 USAGE
