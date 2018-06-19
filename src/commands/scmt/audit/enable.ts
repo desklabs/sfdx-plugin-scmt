@@ -1,6 +1,6 @@
 import { flags } from '@oclif/command'
 import { core } from '@salesforce/command'
-import CommandBase from '../../../command_base'
+import CommandBase, { PropertyType } from '../../../command_base'
 
 // Initialize Messages with the current plugin directory
 core.Messages.importMessagesDirectory(__dirname);
