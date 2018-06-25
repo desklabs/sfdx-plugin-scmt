@@ -27,6 +27,7 @@ USAGE
 <!-- commands -->
 * [`@desklabs/scmt scmt:audit:enable`](#desklabs-scmt-scmtauditenable)
 * [`@desklabs/scmt scmt:cache:disable`](#desklabs-scmt-scmtcachedisable)
+* [`@desklabs/scmt scmt:test:run`](#desklabs-scmt-scmttestrun)
 
 ## `@desklabs/scmt scmt:audit:enable`
 
@@ -71,6 +72,28 @@ EXAMPLES
 ```
 
 _See code: [src/commands/scmt/cache/disable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.3/src/commands/scmt/cache/disable.ts)_
+
+## `@desklabs/scmt scmt:test:run`
+
+runs a migration end to end
+
+```
+USAGE
+  $ @desklabs/scmt scmt:test:run
+
+OPTIONS
+  -u, --targetusername=targetusername             username or alias for the target org; overrides default target org
+  --apiversion=apiversion                         override the api version used for api requests made by this command
+  --json                                          format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal)  logging level for this command invocation
+
+EXAMPLES
+  $ sfdx scmt:test:run
+
+  $ sfdx scmt:test:run --targetusername myOrg@example.com
+```
+
+_See code: [src/commands/scmt/test/run.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.3/src/commands/scmt/test/run.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
