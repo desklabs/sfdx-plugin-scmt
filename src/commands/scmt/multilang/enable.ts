@@ -1,16 +1,14 @@
 /*
- * Filename: /Users/edahl/Documents/GitHub/sfdx-plugin-scmt/src/commands/scmt/multilang/enable.ts
- * Path: /Users/edahl/Documents/GitHub/sfdx-plugin-scmt
- * Created Date: Monday, June 18th 2018, 1:32:26 pm
- * Author: edahl
- *
- * Copyright (c) 2018 Your Company
+ * Copyright (c) 2018, Salesforce.com, inc.
+ * All rights reserved.
+ * Licensed under the BSD 3-Clause license.
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
 
 import { flags } from '@oclif/command'
 import { core } from '@salesforce/command'
-import CommandBase, { PropertyType } from '../../../command_base'
+import CommandBase from '../../../command_base'
 
 // Initialize Messages with the current plugin directory
 core.Messages.importMessagesDirectory(__dirname);
@@ -29,7 +27,6 @@ export default class Enable extends CommandBase {
   protected static requiresUsername = true;
 
   public async run(): Promise<any> { // tslint:disable-line:no-any
-    let outputString = messages.getMessage('commandFinished');
     //navigate to KB settings edit page
     await this.page.goto(this.buildUrl('/_ui/support/knowledge/KnowledgeSettingsUI/e'));
     //check for multi
@@ -58,6 +55,7 @@ export default class Enable extends CommandBase {
 
     await this.page.click('input[title="Save"]');
 
+    let outputString = messages.getMessage('commandFinished');
     this.ux.log(outputString);
     return { outputString };
   }
