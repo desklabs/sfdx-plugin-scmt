@@ -1,7 +1,7 @@
 {
   "name": "@desklabs/scmt",
   "description": "Plugin for SCMT development.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Thomas Stachl @tstachl",
   "bugs": "https://github.com/desklabs/sfdx-plugin-scmt/issues",
   "dependencies": {
@@ -56,6 +56,6 @@
     "prepack": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme",
     "prepare": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "preversion": "oclif-dev readme && git add README.md"
   }
 }

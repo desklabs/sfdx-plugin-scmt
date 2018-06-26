@@ -17,7 +17,7 @@ $ npm install -g @desklabs/scmt
 $ @desklabs/scmt COMMAND
 running command...
 $ @desklabs/scmt (-v|--version|version)
-@desklabs/scmt/0.0.3 darwin-x64 node-v9.11.1
+@desklabs/scmt/0.0.4 darwin-x64 node-v9.11.1
 $ @desklabs/scmt --help [COMMAND]
 USAGE
   $ @desklabs/scmt COMMAND
@@ -27,7 +27,7 @@ USAGE
 <!-- commands -->
 * [`@desklabs/scmt scmt:audit:enable`](#desklabs-scmt-scmtauditenable)
 * [`@desklabs/scmt scmt:cache:disable`](#desklabs-scmt-scmtcachedisable)
-* [`@desklabs/scmt scmt:test:run`](#desklabs-scmt-scmttestrun)
+* [`@desklabs/scmt scmt:multilang:enable`](#desklabs-scmt-scmtmultilangenable)
 
 ## `@desklabs/scmt scmt:audit:enable`
 
@@ -49,7 +49,7 @@ EXAMPLES
   $ sfdx scmt:audit:enable --targetusername myOrg@example.com
 ```
 
-_See code: [src/commands/scmt/audit/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.3/src/commands/scmt/audit/enable.ts)_
+_See code: [src/commands/scmt/audit/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/audit/enable.ts)_
 
 ## `@desklabs/scmt scmt:cache:disable`
 
@@ -71,15 +71,15 @@ EXAMPLES
   $ sfdx scmt:cache:disable --targetusername myOrg@example.com
 ```
 
-_See code: [src/commands/scmt/cache/disable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.3/src/commands/scmt/cache/disable.ts)_
+_See code: [src/commands/scmt/cache/disable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/cache/disable.ts)_
 
-## `@desklabs/scmt scmt:test:run`
+## `@desklabs/scmt scmt:multilang:enable`
 
-runs a migration end to end
+Enables 'Multi-Languange' and 'Adds German Translations'
 
 ```
 USAGE
-  $ @desklabs/scmt scmt:test:run
+  $ @desklabs/scmt scmt:multilang:enable
 
 OPTIONS
   -u, --targetusername=targetusername             username or alias for the target org; overrides default target org
@@ -88,12 +88,12 @@ OPTIONS
   --loglevel=(trace|debug|info|warn|error|fatal)  logging level for this command invocation
 
 EXAMPLES
-  $ sfdx scmt:test:run
+  $ sfdx scmt:multilang:enable
 
-  $ sfdx scmt:test:run --targetusername myOrg@example.com
+  $ sfdx scmt:multilang:enable --targetusername myOrg@example.com
 ```
 
-_See code: [src/commands/scmt/test/run.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.3/src/commands/scmt/test/run.ts)_
+_See code: [src/commands/scmt/multilang/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/multilang/enable.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
