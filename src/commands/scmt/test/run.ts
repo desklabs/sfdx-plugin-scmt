@@ -24,6 +24,11 @@ export default class Run extends CommandBase {
   ];
 
   protected static requiresUsername = true;
+  protected static flagsConfig = {
+    endpoint: flags.string({ char: 'e', description: messages.getMessage('endpointFlagDescription'), required: true }),
+    username: flags.string({ char: 'n', description: messages.getMessage('usernameFlagDescription'), required: true }),
+    password: flags.string({ char: 'p', description: messages.getMessage('passwordFlagDescription'), required: true })
+  };
 
   public async run(): Promise<any> { // tslint:disable-line:no-any
     await this.startArticleMigration();
@@ -39,9 +44,9 @@ export default class Run extends CommandBase {
     await this.page.click('input[type="checkbox"'); // apex settings
     await this.page.click('.slds-wizard-footer button.slds-order_3'); // continue
 
-    await this.typeEndpoint('https://zzz-scmtkb.desk.com'); // fill endpoint
+    await this.typeEndpoint(this.flags.endpoint); // fill endpoint
     await this.page.click('.cStepTwo'); // unfocus and enable button
-    await this.listenForOAuth(); // listen for the OAuth flow window
+    await this.listenForOAuth(this.flags.username, this.flags.password); // listen for the OAuth flow window
     await this.page.click('.cStepTwo button'); // authorize desk
 
     await this.page.waitFor('.cVerticalNavigationItemSelect[name="articles"]', { visible: true, timeout: 600000 });
@@ -76,7 +81,7 @@ export default class Run extends CommandBase {
     await this.page.click('.appTileTitle[title="Desk Migration Wizard"]');
   }
 
-  public async listenForOAuth(): Promise<any> {
+  public async listenForOAuth(username: string, password: string): Promise<any> {
     const browser = this.browser;
 
     return browser.on('targetcreated', async () => {
@@ -84,8 +89,8 @@ export default class Run extends CommandBase {
       const newPage = await pageList[pageList.length - 1];
 
       await newPage.waitFor('#user_session_email');
-      await newPage.type('#user_session_email', 'tstachl@salesforce.com');
-      await newPage.type('#user_session_password', 'Salesforce1');
+      await newPage.type('#user_session_email', username);
+      await newPage.type('#user_session_password', password);
       await newPage.click('#user_session_submit');
 
       await newPage.waitFor('input[name="commit"]');
