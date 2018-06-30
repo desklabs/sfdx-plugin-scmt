@@ -106,6 +106,7 @@ USAGE
 
 OPTIONS
   -e, --endpoint=endpoint                         (required) endpoint for the Desk.com instance
+  -m, --migration=article|case                    [default: article] migration to run
   -n, --username=username                         (required) username for the Desk.com instance
   -p, --password=password                         (required) password for the Desk.com instance
   -u, --targetusername=targetusername             username or alias for the target org; overrides default target org

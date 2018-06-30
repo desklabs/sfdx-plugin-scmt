@@ -2,5 +2,8 @@
   "runCommandDescription": "runs a migration end to end",
   "endpointFlagDescription": "endpoint for the Desk.com instance",
   "usernameFlagDescription": "username for the Desk.com instance",
-  "passwordFlagDescription": "password for the Desk.com instance"
+  "passwordFlagDescription": "password for the Desk.com instance",
+  "migrationFlagDescription": "migration to run",
+  "errorPermissionMissing": "Some of the permissions are missing.",
+  "errorNoMigrationResults": "No results found for the organization '%s'."
 }
