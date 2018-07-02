@@ -1,7 +1,6 @@
 import { flags } from '@oclif/command'
 import { core } from '@salesforce/command'
 import CommandBase from '../../../command_base'
-import { BADHINTS } from 'dns';
 
 // Initialize Messages with the current plugin directory
 core.Messages.importMessagesDirectory(__dirname);
@@ -59,19 +58,44 @@ export default class Run extends CommandBase {
       await this.page.select('select[name="selectLayout"]', 'Knowledge__kav-Knowledge Layout');
 
       await this.page.waitFor('.cStepThree .cFieldMapping .slds-combobox ul > li');
-      const comboboxes = await this.page.$$('.cStepThree .cFieldMapping .slds-combobox');
-
-      for (let combobox of comboboxes) {
-        const fieldHandle = await this.page.evaluateHandle(el => el.value, await combobox.$('input'));
-        if (await fieldHandle.jsonValue() === '') {
-          await combobox.click();
-          (await combobox.$('.slds-listbox > li')).click();
-        }
-      }
+      await this.comboboxes(await this.page.$$('.cStepThree .cFieldMapping .slds-combobox'));
 
       await this.page.click('.cVerticalNavigationItemSelect[name="translations"]');
     } else {
+      // go to users
+      await this.page.waitFor('.cVerticalNavigationItemSelect[name="users"]', { visible: true, timeout: 120000 });
+      await this.page.click('.cVerticalNavigationItemSelect[name="users"]');
+      // wait for the users to show up
+      await this.page.waitFor('.cUser', { visible: true });
+      // set profile to Standard user
+      const optionWaned = (await this.page.$x(`//*[@name = "userProfile"]/option[text() = "Standard User"]`))[0];
+      const optionValue = await (await optionWaned .getProperty('value')).jsonValue();
+      await this.page.select('select[name=userProfile]', optionValue);
 
+      // go to groups
+      await this.page.click('.cVerticalNavigationItemSelect[name="groups"]');
+      // wait for the groups
+      await this.page.waitFor('.cGroupMapping tbody tr', { visible: true });
+      await this.comboboxes(await this.page.$$('.cGroupMapping .slds-combobox'));
+
+      // go to accounts
+      await this.page.click('.cVerticalNavigationItemSelect[name="accounts"]');
+      // wait for the accounts
+      await this.page.waitFor('.cStepThree .slds-size_10-of-12 .slds-show .cFieldMapping tbody tr', { visible: true });
+      await this.comboboxes(await this.page.$$('.cStepThree .slds-size_10-of-12 .slds-show .cFieldMapping .slds-combobox'));
+
+      // go to contacts
+      await this.page.click('.cVerticalNavigationItemSelect[name="contacts"]');
+      // wait for the contacts
+      await this.page.waitFor('.cStepThree .slds-size_10-of-12 .slds-show .cFieldMapping tbody tr', { visible: true });
+      await this.comboboxes(await this.page.$$('.cStepThree .slds-size_10-of-12 .slds-show .cFieldMapping .slds-combobox'));
+
+      // go to cases
+      await this.page.click('.cVerticalNavigationItemSelect[name="cases"]');
+      // wait for the cases
+      await this.page.waitFor('.cStepThree .slds-size_10-of-12 .slds-show .cFieldMapping tbody tr', { visible: true });
+      await this.page.select('select[name=selectItem]', 'Migrate All Data');
+      await this.comboboxes(await this.page.$$('.cStepThree .slds-size_10-of-12 .slds-show .cFieldMapping .slds-combobox'));
     }
 
     await this.page.click('.slds-wizard-footer button.slds-order_3'); // continue
@@ -146,5 +170,18 @@ export default class Run extends CommandBase {
     await textField.click({ clickCount: 3 });
     await textField.press('Backspace');
     await textField.type(this.flags.endpoint, { delay: 1 });
+  }
+
+  public async comboboxes(boxes): Promise<any> {
+    for (let combobox of boxes) {
+      const fieldHandle = await this.page.evaluateHandle(el => el.value, await combobox.$('input'));
+      if (await fieldHandle.jsonValue() === '') {
+        await combobox.click();
+        let li = await combobox.$('.slds-listbox > li');
+        this.page.evaluate(`window.scroll(0, ${(await li.boundingBox()).y})`);
+        li.click();
+      }
+    }
+    await this.page.waitFor(2500);
   }
 }
