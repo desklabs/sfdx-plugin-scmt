@@ -13,8 +13,8 @@ const messages = core.Messages.loadMessages('@desklabs/scmt', 'test');
 export default class Run extends CommandBase {
   public static description = messages.getMessage('runCommandDescription');
   public static examples = [
-    `$ sfdx scmt:test:run`,
-    `$ sfdx scmt:test:run -e https://domain.desk.com -n user@domain.com -p password`
+    `$ sfdx scmt:test:run -u test-6wc4l7uohg0h@example.com -e https://domain.desk.com -n user@domain.com -p password`,
+    `$ sfdx scmt:test:run -u test-6wc4l7uohg0h@example.com -e https://domain.desk.com -n user@domain.com -p password -m case`
   ];
 
   protected static requiresUsername = true;

@@ -115,9 +115,10 @@ OPTIONS
   --loglevel=(trace|debug|info|warn|error|fatal)  logging level for this command invocation
 
 EXAMPLES
-  $ sfdx scmt:test:run
+  $ sfdx scmt:test:run -u test-6wc4l7uohg0h@example.com -e https://domain.desk.com -n user@domain.com -p password
 
-  $ sfdx scmt:test:run --targetusername myOrg@example.com
+  $ sfdx scmt:test:run -u test-6wc4l7uohg0h@example.com -e https://domain.desk.com -n user@domain.com -p password -m 
+  case
 ```
 
 _See code: [src/commands/scmt/test/run.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/test/run.ts)_
