@@ -174,6 +174,8 @@ export default class Run extends CommandBase {
 
   public async comboboxes(boxes): Promise<any> {
     for (let combobox of boxes) {
+      let firstId = await combobox.$eval('.slds-input', node => node.id);
+      await this.page.waitForFunction(`!document.getElementById('${firstId}').placeholder.includes('Loading')`);
       const fieldHandle = await this.page.evaluateHandle(el => el.value, await combobox.$('input'));
       if (await fieldHandle.jsonValue() === '') {
         await combobox.click();
