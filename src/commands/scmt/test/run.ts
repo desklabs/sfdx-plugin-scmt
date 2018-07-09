@@ -14,7 +14,7 @@ export default class Run extends CommandBase {
   public static description = messages.getMessage('runCommandDescription');
   public static examples = [
     `$ sfdx scmt:test:run`,
-    `$ sfdx scmt:test:run --targetusername myOrg@example.com`
+    `$ sfdx scmt:test:run -e https://domain.desk.com -n user@domain.com -p password`
   ];
 
   protected static requiresUsername = true;
