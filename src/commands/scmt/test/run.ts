@@ -174,16 +174,21 @@ export default class Run extends CommandBase {
 
   public async comboboxes(boxes): Promise<any> {
     for (let combobox of boxes) {
-      let firstId = await combobox.$eval('.slds-input', node => node.id);
-      await this.page.waitForFunction(`!document.getElementById('${firstId}').placeholder.includes('Loading')`);
+      let comboInputId = await combobox.$eval('.slds-input', node => node.id);
+      await this.page.waitForFunction(`!document.getElementById('${comboInputId}').placeholder.includes('Loading')`);
       const fieldHandle = await this.page.evaluateHandle(el => el.value, await combobox.$('input'));
       if (await fieldHandle.jsonValue() === '') {
         await combobox.click();
         let li = await combobox.$('.slds-listbox > li');
-        this.page.evaluate(`window.scroll(0, ${(await li.boundingBox()).y})`);
-        li.click();
+        await this.page.evaluate(`
+          var scrollTop = document.documentElement.scrollTop;
+          var elementTop = document.getElementById('${comboInputId}').getBoundingClientRect().y - 90;
+          window.scrollTo(0, elementTop + scrollTop);
+        `);
+        await li.click();
       }
     }
     await this.page.waitFor(2500);
+    await this.page.evaluate(`window.scroll(0, 0)`);
   }
 }
