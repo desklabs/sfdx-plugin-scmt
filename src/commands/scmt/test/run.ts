@@ -33,7 +33,7 @@ export default class Run extends CommandBase {
       await this.stepThree();
       await this.stepFour();
     } catch(err) {
-      await this.page.screenshot({ path: './error.jpg', fullPage: true });
+      await this.screenshot(`error-${this.flags.migration}`);
       throw new core.SfdxError(err);
     }
   }
@@ -42,7 +42,7 @@ export default class Run extends CommandBase {
     this.ux.log('SCMT:TEST:RUN - stepFour');
     await this.page.waitFor(10000);
     await this.page.waitForFunction('!document.querySelector(".slds-wizard-footer button.slds-order_3").disabled', { timeout: 900000 });
-    await this.page.screenshot({ path: './complete.jpg', fullPage: true });
+    await this.screenshot(`complete-${this.flags.migration}`);
     await this.page.click('.slds-wizard-footer button.slds-order_3');
     await this.page.waitFor(5000);
   }

@@ -1,10 +1,13 @@
 import * as Config from '@oclif/config';
 import { SfdxCommand } from '@salesforce/command';
 import { launch, Browser, Page } from 'puppeteer';
+import { existsSync, mkdirSync } from 'fs';
 
 export default abstract class CommandBase extends SfdxCommand {
   protected browser: Browser;
   protected page: Page;
+
+  protected static TEST_OUTPUT: string = './output';
 
   protected async assignOrg(): Promise<void> {
     await super.assignOrg();
@@ -34,5 +37,14 @@ export default abstract class CommandBase extends SfdxCommand {
   protected buildUrl(path: string): string {
     this.logger.debug(`CommandBase.buildUrl('${path}')`);
     return `${this.org.getConnection().instanceUrl}${path}`;
+  }
+
+  protected async screenshot(name: string): Promise<void> {
+    if (!existsSync(CommandBase.TEST_OUTPUT)){
+      mkdirSync(CommandBase.TEST_OUTPUT);
+    }
+
+    const path = `${CommandBase.TEST_OUTPUT}/${name}-${Date.now()}.jpg`;
+    await this.page.screenshot({ path: path, fullPage: true });
   }
 }
