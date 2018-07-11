@@ -163,13 +163,15 @@ export default class Run extends CommandBase {
   }
 
   public async typeEndpoint(): Promise<any> {
-    await this.page.waitFor('.cStepTwo input[type=url]', { visible: true });
-    const textField = await this.page.$('.cStepTwo input[type=url]');
+    const selector = '.cStepTwo input[type=url]';
+    await this.page.waitFor(selector, { visible: true });
+    await this.page.waitFor(2500);
+    const textField = await this.page.$(selector);
     await textField.click();
     await textField.focus();
     await textField.click({ clickCount: 3 });
     await textField.press('Backspace');
-    await textField.type(this.flags.endpoint, { delay: 1 });
+    await textField.type(this.flags.endpoint);
   }
 
   public async comboboxes(boxes): Promise<any> {
