@@ -28,6 +28,7 @@ USAGE
 * [`@desklabs/scmt scmt:audit:enable`](#desklabs-scmt-scmtauditenable)
 * [`@desklabs/scmt scmt:cache:disable`](#desklabs-scmt-scmtcachedisable)
 * [`@desklabs/scmt scmt:multilang:enable`](#desklabs-scmt-scmtmultilangenable)
+* [`@desklabs/scmt scmt:test:run`](#desklabs-scmt-scmttestrun)
 
 ## `@desklabs/scmt scmt:audit:enable`
 
@@ -94,6 +95,33 @@ EXAMPLES
 ```
 
 _See code: [src/commands/scmt/multilang/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/multilang/enable.ts)_
+
+## `@desklabs/scmt scmt:test:run`
+
+runs a migration end to end
+
+```
+USAGE
+  $ @desklabs/scmt scmt:test:run
+
+OPTIONS
+  -e, --endpoint=endpoint                         (required) endpoint for the Desk.com instance
+  -m, --migration=article|case                    [default: article] migration to run
+  -n, --username=username                         (required) username for the Desk.com instance
+  -p, --password=password                         (required) password for the Desk.com instance
+  -u, --targetusername=targetusername             username or alias for the target org; overrides default target org
+  --apiversion=apiversion                         override the api version used for api requests made by this command
+  --json                                          format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal)  logging level for this command invocation
+
+EXAMPLES
+  $ sfdx scmt:test:run -u test-6wc4l7uohg0h@example.com -e https://domain.desk.com -n user@domain.com -p password
+
+  $ sfdx scmt:test:run -u test-6wc4l7uohg0h@example.com -e https://domain.desk.com -n user@domain.com -p password -m 
+  case
+```
+
+_See code: [src/commands/scmt/test/run.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/test/run.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
