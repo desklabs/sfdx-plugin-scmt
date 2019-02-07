@@ -3,9 +3,9 @@ scmt
 
 Plugin for SCMT development.
 
-[![Version](https://img.shields.io/npm/v/sfdx-plugin-scmt.svg)](https://npmjs.org/package/sfdx-plugin-scmt)
-[![Downloads/week](https://img.shields.io/npm/dw/scmt.svg)](https://npmjs.org/package/scmt)
-[![License](https://img.shields.io/npm/l/scmt.svg)](https://github.com/desklabs/sfdx-plugin-scmt/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@desklabs/scmt.svg)](https://npmjs.org/package/@desklabs/scmt)
+[![Downloads/week](https://img.shields.io/npm/dw/@desklabs/scmt.svg)](https://npmjs.org/package/@desklabs/scmt)
+[![License](https://img.shields.io/npm/l/@desklabs/scmt.svg)](https://github.com/desklabs/sfdx-plugin-scmt/blob/master/package.json)
 
 <!-- toc -->
 * [Debugging your plugin](#debugging-your-plugin)
@@ -17,7 +17,7 @@ $ npm install -g @desklabs/scmt
 $ @desklabs/scmt COMMAND
 running command...
 $ @desklabs/scmt (-v|--version|version)
-@desklabs/scmt/0.0.4 darwin-x64 node-v9.11.1
+@desklabs/scmt/0.0.5 darwin-x64 node-v9.11.1
 $ @desklabs/scmt --help [COMMAND]
 USAGE
   $ @desklabs/scmt COMMAND
@@ -50,7 +50,7 @@ EXAMPLES
   $ sfdx scmt:audit:enable --targetusername myOrg@example.com
 ```
 
-_See code: [src/commands/scmt/audit/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/audit/enable.ts)_
+_See code: [src/commands/scmt/audit/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.5/src/commands/scmt/audit/enable.ts)_
 
 ## `@desklabs/scmt scmt:cache:disable`
 
@@ -72,7 +72,7 @@ EXAMPLES
   $ sfdx scmt:cache:disable --targetusername myOrg@example.com
 ```
 
-_See code: [src/commands/scmt/cache/disable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/cache/disable.ts)_
+_See code: [src/commands/scmt/cache/disable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.5/src/commands/scmt/cache/disable.ts)_
 
 ## `@desklabs/scmt scmt:multilang:enable`
 
@@ -94,7 +94,7 @@ EXAMPLES
   $ sfdx scmt:multilang:enable --targetusername myOrg@example.com
 ```
 
-_See code: [src/commands/scmt/multilang/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/multilang/enable.ts)_
+_See code: [src/commands/scmt/multilang/enable.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.5/src/commands/scmt/multilang/enable.ts)_
 
 ## `@desklabs/scmt scmt:test:run`
 
@@ -121,7 +121,7 @@ EXAMPLES
   case
 ```
 
-_See code: [src/commands/scmt/test/run.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.4/src/commands/scmt/test/run.ts)_
+_See code: [src/commands/scmt/test/run.ts](https://github.com/desklabs/sfdx-plugin-scmt/blob/v0.0.5/src/commands/scmt/test/run.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
